@@ -1,0 +1,26 @@
+{
+    "name": "C TDD with Ceedling",
+    // Usamos una imagen base de contenedor de desarrollo con herramientas de C/C++
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+    "features": {
+        // Añadimos la "feature" de Ruby para no tener que instalarla manualmente
+        "ghcr.io/devcontainers/features/ruby:1": {}
+    },
+
+    "customizations": {
+        "vscode": {
+            // Extensiones de VS Code que se instalarán automáticamente en el Codespace
+            "extensions": [
+                "ms-vscode.cpptools",                   // Soporte esencial para C/C++
+                "dank-j.ceedling-test-adapter",         // ¡Plugin para ver y ejecutar tests de Ceedling desde la GUI!
+                "eamodio.gitlens",                      // Mejora la integración con Git
+                "mhutchie.git-graph",                    // Visualizador de grafos de Git
+                "ms-vscode.cpptools-extension-pack"
+            ]
+        }
+    },
+    
+    // Comando que se ejecuta después de que el contenedor se haya creado
+    "postCreateCommand": "gem install ceedling"
+}
